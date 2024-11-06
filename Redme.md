@@ -9,11 +9,10 @@
 - [Descrição](#descrição)
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
 - [Pré-Requisitos](#pré-requisitos)
-- [Instalação](#instalação)
-- [Uso](#uso)
-- [Contribuindo](#contribuindo)
-- [Licença](#licença)
+- [Link-Git](#Link-Git)
 - [Contato](#contato)
+- [Uso](#uso)
+
 
 ## Descrição
 
@@ -33,61 +32,71 @@ Exemplo:
 
 Antes de começar, você precisa ter o seguinte instalado na sua máquina:
 
-- [Node.js](https://nodejs.org/) (Versão 14 ou superior)
-- [MongoDB](https://flask.palletsprojects.com/) (Framework)
+- [Node.js](https://nodejs.org/) (Versão 14 ou superior---precisou para usar o comando npm-vercel\porém com falhas)
+- [Flask](https://flask.palletsprojects.com/) (Framework)
 - [Python](https://python.org.br/instalacao-windows/) (Python)
+- [VSCode](https://code.visualstudio.com/download) (IDE)
 
 Se você estiver utilizando o projeto localmente, certifique-se de que o serviço esteja em execução.
 
-## Instalação
+## Link-Git
 
-Siga as instruções abaixo para rodar este projeto localmente.
+Leia a mensagem com atenção.
 
 1. Clone o repositório:
     ```bash
-    git clone https://github.com/usuario/nome-do-repositorio.git
+    git clone https://github.com/Paullo-Matheus/Projeto_Fiap_Fase01.git
     ```
 
 2. Navegue até o diretório do projeto:
     ```bash
-    cd nome-do-repositorio
+    cd Projeto_Fiap_Fase01
     ```
 
-3. Instale as dependências:
-    ```bash
-    npm install
-    ```
 
-4. Configure o arquivo `.env` para variáveis de ambiente (se houver):
-    ```bash
-    cp .env.example .env
-    ```
 
-    Edite as variáveis no arquivo `.env` conforme necessário.
+ endereço Local `http://localhost:5000/swagger`.
 
-5. Inicie o servidor de desenvolvimento:
-    ```bash
-    npm start
-    ```
 
-Agora o projeto estará rodando localmente, geralmente no endereço `http://localhost:3000`.
+ ## Contato
+
+Paullomatheus.226@gmail.com
+
+RM:259255
 
 ## Uso
 
-Aqui você pode fornecer exemplos de uso do seu projeto. Pode ser código, imagens ou descrições.
+Segue um exemplo do código api.py em uso.
 
 Exemplo de comando ou código:
 
 ```bash
-npm run dev
 
-## Descrição
+
+import sys
+import os
+
+# Adicionando o caminho da pasta 'src'
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), 'src')))
+
+from routes.api_routes import init_routes  # Ajustado
+from server.instancia import server  # Alteração_feita
+from flask_restx import Api #importação_bem_secudida
+
+# Cria_a_instância_do_Flask_com_a_função_server()_
+app = server()  #  função que cria a instância do Flask
+
+# Cria a instância 
+api = Api(app, doc='/swagger') 
+# Inicializa as rotas 
+init_routes(app,api)
+
+#  Flask
+if __name__ == '__main__':
+    app.run(debug=True)
 Uma breve descrição sobre o que o projeto faz e seu propósito-
 .
 
-## Instalação
-Instruções sobre como instalar e configurar o projeto localmente:
-```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git
-cd seu-repositorio
-npm install
+
+git clone https://github.com/Paullo-Matheus/Projeto_Fiap_Fase01.git
+
